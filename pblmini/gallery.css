@@ -1,0 +1,202 @@
+.html,body{
+    cursor:none;
+}
+    .body{
+    background:yellowgreen;
+    display: flex;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    
+}
+    
+/*for the main layout*/
+/* masonry gallery*/
+.container{
+    background: beige;
+    width: 96%;
+    margin: 5px;
+    columns: 5;
+    column-gap: 5px;
+    padding-left: 5px;
+    padding-right: 5px;   
+}
+
+.photo-gallery{
+    display: flex;
+    gap: 5px;
+    flex-direction:column;
+}
+
+
+/*for hover text */
+.photo{
+    position: relative;
+    flex: 1 1 calc(20% - 6px);
+    flex-wrap: wrap; /* Ensures responsive behavior */
+    gap: 20px; /* Adjust the gap between gallery and creator info */
+    padding: 5px;
+    break-inside: avoid;
+   
+}
+
+.desc{
+    position: absolute;
+    opacity:0;
+    bottom: 1rem;
+    margin: auto;
+    overflow: hidden;
+    text-justify: auto;
+    font-size: auto;
+    color: aliceblue;
+    text-align: right;
+}
+
+.photo:hover .desc{
+    opacity: 1;
+}
+.photo:hover IMG{
+    opacity: 0.7;
+}  
+img{
+        width: 100%;
+        margin: auto;
+        border-radius: 7px;
+}
+/************************************************************/
+@media (max-width:90%)
+{
+
+}
+/*************lightbox panel******************/
+
+.overlay {
+    display: none; 
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);}
+    
+
+
+
+
+#displayedImage {
+    width: 100%;
+    height: auto;
+}
+
+.side-panel {
+    background: white;
+    padding: 20px;
+    position: relative;
+    width: 400px;
+    max-height: 82%;
+    overflow-y: auto;
+    border-radius: 20px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional shadow for depth */
+}
+
+.description {
+    margin-top: 10px;
+}
+/*********************/
+
+/*nav arrows*/
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.navigation button {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0 5px;
+    transition: background 0.3s;
+}
+
+.navigation button:hover {
+    background: rgba(255, 255, 255, 1); 
+}
+
+/*scroll */
+.side-panel::-webkit-scrollbar {
+    width: 6px; 
+}
+
+.side-panel::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.5); 
+    border-radius: 20px; 
+    overflow-y: hidden;
+}
+
+.side-panel::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); 
+    overflow: hidden;
+    overflow-wrap: normal;
+}
+/************************************************************/
+.creators-container{
+ color:lightsteelblue;
+}
+.creator{
+color:lightgreen;
+}
+.creator {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Creator's photo styling */
+.creator .artist {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+/* Creator's name styling */
+.creator h5 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+.artist{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.side-panel .creator .artist {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  /* Circular photo */
+    object-fit: cover;
+    margin-right: 10px;
+}
+.artist-info {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.artist {
+    width: 40px; /* Size of the circular image */
+    height: 40px;
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the area */
+    margin-right: 10px; /* Space between image and text */
+}
+
+.desc {
+    color: aliceblue; /* Adjust color as needed */
+}

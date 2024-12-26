@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Exhibition Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+        
+        /* Include the custom fonts and styles from previous CSS */
+        @font-face {
+            font-family: 'Gogoia';
+            src: url('GOGOIA-Regular.ttf');
+        }
+        @font-face {
+            font-family: 'Gidole';
+            src: url('Gidole-Regular.otf');
+        }
+        @font-face {
+            font-family: 'Gogoia-deco';
+            src: url('GOGOIA-Deco.ttf');
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #282c34;
+            color: #ffffff;
+            box-shadow: 0 4px 12px #00000044;
+            backdrop-filter: blur(50px);
+            transition: transform 0.35s;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            font-family: 'Gogoia-deco';
+        }
+
+        .navbar .home, .navbar .links {
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            font-family: 'Gidole';
+            transition: background 0.3s;
+        }
+
+        .navbar .home:hover, .navbar .links:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Gogoia-deco';
+            color: #333;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Gogoia';
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+            font-weight: 500;
+            font-family: 'Gidole';
+            font-size: 1rem;
+        }
+
+        input[type="text"], input[type="email"], input[type="tel"], input[type="url"], input[type="number"], textarea, select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            font-family: 'Gidole';
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Center the gallery flexbox */
+        .gallery {
+            display: flex;
+            justify-content: center; /* Center gallery */
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .art-item {
+            background: #f0f0f0;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            max-width: 250px; /* Limit the width */
+        }
+
+        .art-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+
+        .art-item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Remove blue color and underline from links */
+        a {
+            color: inherit; /* Matches surrounding text */
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #007bff; /* Add color change on hover if needed */
+        }
+
+        footer {
+            margin-top: 2rem;
+            padding: 1rem;
+            text-align: center;
+            background-color: #f8f8f8;
+            box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-container h2 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            font-family: 'Gogoia-deco';
+        }
+
+        .footer-container p {
+            margin: 0;
+            font-size: 1rem;
+            color: #555;
+            font-family: 'Gidole';
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Art Exhibition</div>
+        <div class="home">Home</div>
+        <div class="links">About</div>
+    </div>
+
+    <div class="container">
+        <h1>Art Exhibition Entry Form</h1>
+        <form action="#">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="artwork-title">Artwork Title</label>
+            <input type="text" id="artwork-title" name="artwork-title" placeholder="Enter artwork title" required>
+
+            <label for="artwork-url">Artwork Image URL</label>
+            <input type="url" id="artwork-url" name="artwork-url" placeholder="Enter artwork image URL" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <div class="gallery">
+        <div class="art-item">
+            <h2>Artwork 1</h2>
+            <img src="https://via.placeholder.com/150" alt="Artwork 1">
+        </div>
+        <div class="art-item">
+            <h2>Artwork 2</h2>
+            <img src="https://via.placeholder.com/150" alt="Artwork 2">
+        </div>
+        <div class="art-item">
+            <h2>Artwork 3</h2>
+            <img src="https://via.placeholder.com/150" alt="Artwork 3">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <h2>Art Exhibition Footer</h2>
+            <p>Bringing creativity to life!</p>
+        </div>
+    </footer>
+
+</body>
+</html>

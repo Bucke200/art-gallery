@@ -1,0 +1,234 @@
+@font-face {
+    font-family: Gogoia;
+    src: url(GOGOIA-Regular.ttf);
+  }
+  @font-face {
+    font-family: Gidole;
+    src: url(Gidole-Regular.otf);
+  }
+  @font-face {
+    font-family: Gogoia-deco;
+    src: url(GOGOIA-Deco.ttf);
+  }
+  
+  body {
+    cursor: none;
+    height: 100vh;
+    width: 100vw;
+    background-color: white; /* Light background */
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Rubik', sans-serif;
+    color: #333; /* Dark text color for readability */
+  }
+  
+  /* Dashboard header */
+  .dashboard {
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: #333; /* Dark text color */
+  }
+  
+  .logo {
+    font-size: 4rem;
+    font-family: "Gogoia-deco", sans-serif;
+    flex-grow: 0.2;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .links {
+    cursor: pointer;
+    color: #333; /* Dark text color */
+    position: relative;
+    padding: 20px;
+    text-decoration: none;
+  }
+  
+  .links:hover {
+    color: #111; /* Darker text on hover */
+  }
+  
+  .links::after {
+    content: '';
+    position: absolute;
+    background-color: #333; /* Dark underline */
+    height: 2px; /* Thickness of underline */
+    width: 0;
+    left: 0;
+    bottom: 0;
+    transition: width 0.35s ease; /* Smooth transition */
+  }
+  
+  .links:hover::after {
+    width: 100%;
+  }
+  
+  /* Image Track Section */
+  #image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0%, -50%);
+    user-select: none;
+  }
+  
+  #image-track > .image {
+    width: 35vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% center;
+  }
+  
+  /* Full-Screen Modal */
+  .full-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .full-screen.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .full-screen img {
+    max-width: 50%;
+    max-height: 80%;
+    object-fit: contain;
+  }
+  
+  .image-description {
+    margin-left: 20px;
+    color: #333; /* Dark text color */
+    font-family: "Rubik", sans-serif;
+    font-size: 1.2em;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for description */
+    padding: 15px 20px;
+    border-radius: 5px;
+    max-width: 40%;
+    text-align: left;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: transparent;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: none;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    clear: both;
+  }
+  
+  .footer-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  footer p {
+    font-family: "Gidole";
+    font-size: 20px;
+    color: #555; /* Dark gray text for footer */
+    line-height: 1.6;
+    font-weight: bold;
+  }
+  .search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  .search-box {
+    padding: 0.5rem 1rem; /* Remove extra padding for left side to align button properly */
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-right: none; /* Remove border between search box and button */
+    border-radius: 20px 0 0 20px; /* Rounded corners on the left side only */
+    background: rgba(255, 255, 255, 0.3);
+    color: black;
+    font-size: 16px;
+    outline: none;
+    width: 100%;
+    max-width: 250px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+  .search-container form {
+    display: flex; /* Ensures input and button are aligned side by side */
+    align-items: center;
+  }
+  
+  .search-container button {
+    padding: 0.5rem 1rem;
+    font-size: 16px;
+    font-family: "Gidole";
+    background-color: black;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    border-radius: 0 20px 20px 0; /* Rounded corners on the right side only */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    position: relative;
+    right: 2px; /* Fine-tune alignment */
+  }
+  
+  .search-container button:hover {
+    background-color: #f39c12;
+    color: white;
+    border-color: #f39c12;
+  }
+  
+  .search-box::placeholder {
+    color: rgba(0, 0, 0, 0.7); /* Placeholder color */
+  }
+  
+  .search-box:focus {
+    background: rgba(255, 255, 255, 0.4); /* Slightly darker glass effect on focus */
+    border-color: rgb(210, 210, 210); /* Highlight border on focus */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow effect */
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(150, 150, 150, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(120, 120, 120, 0.6);
+    }
+  }
+  
+  
+

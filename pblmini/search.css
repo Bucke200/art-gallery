@@ -1,0 +1,112 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Gogoia', 'Gidole', sans-serif; /* Use the fonts consistent with your main page */
+    background-color: #000000; /* Matching black background */
+    color: #fff; /* White text for contrast */
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #fff; /* White text color */
+    font-weight: bold;
+}
+
+#search-bar {
+    width: 60%;
+    padding: 15px;
+    border: 2px solid #3498db;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #333; /* Dark background for the search bar */
+    transition: border-color 0.3s;
+}
+
+#search-bar::placeholder {
+    color: #aaa; /* Lighter placeholder text */
+}
+
+#search-bar:focus {
+    border-color: #2980b9;
+}
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    background: #222; /* Dark background for each result */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: calc(30% - 20px); /* Responsive item width */
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+.result-image {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #2980b9; /* Consistent border color */
+}
+
+.result-text {
+    padding: 20px;
+    text-align: center;
+}
+
+.result-text h2 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #3498db; /* Consistent blue color for titles */
+}
+
+.result-text p {
+    margin: 5px 0;
+    color: #bbb; /* Light gray text for descriptions */
+}
+
+.result-text p:first-of-type {
+    font-weight: bold;
+    color: #fff; /* Bold white for the first paragraph (Artist or Venue) */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+    #search-bar {
+        width: 80%; /* Larger width for smaller screens */
+    }
+
+    .result-item {
+        width: calc(45% - 20px); /* Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .result-item {
+        width: 100%; /* Full width for mobile */
+    }
+}

@@ -1,0 +1,426 @@
+@font-face {
+    font-family:Gogoia ;
+    src: url(GOGOIA-Regular.ttf);
+  }
+  @font-face {
+    font-family: Gidole;
+    src: url(Gidole-Regular.otf);
+  }
+  @font-face {
+    font-family: Gogoia-deco;
+    src: url(GOGOIA-Deco.ttf);
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body,
+  html {
+    cursor: none;
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    background-color: #000000; /* Change to black */
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+  svg {
+    display: none;
+  }
+  h1 {
+    color: white;
+    position: relative;
+    font-family: "Gogoia-deco";
+    font-weight: 100;
+    z-index: 1;
+    margin: 0;
+    font-size: 4rem;
+  
+  }
+  .Cursor {
+    pointer-events: none;
+    position: fixed;
+    display: block;
+    border-radius: 0;
+    transform-origin: center center;
+    mix-blend-mode: difference;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    filter: url("#goo");
+  }
+  .Cursor span {
+    position: absolute;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 20px;
+    background-color: #fff;
+    transform-origin: center center;
+    transform: translate(-50%, -50%);
+  }
+  @-webkit-keyframes rotating {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes rotating {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(15, 15, 15, 0.9);
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(50px);
+  transition: transform 0.35s;
+  border-radius: 15px;
+  }
+  .logo {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  flex: 0 1 auto;
+  }
+  .home{
+    cursor: pointer;
+    color: white;
+  position: relative;
+  padding: 20px;
+  flex-grow: 1.7;
+  }
+  .links {
+    cursor: pointer;
+    color: white;
+    position: relative;
+    padding: 0.9rem;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .links:hover {
+    color: #f39c12; /* Change color on hover */
+    transition: color 0.3s; /* Smooth transition */
+  }
+  
+  /* Keep existing styles... */
+  
+  .links::after{
+  content: '';
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: 0;
+  transition:width .35s;
+  }
+  .links:hover:after
+  {
+    width: 100%;
+  }
+  .home::after{
+    content: '';
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: 0;
+    transition:width .35s;
+    }
+    .home:hover:after
+    {
+      width: 13%;
+    }
+    .navbar--hidden{
+      transform: translateY(-100px);
+      box-shadow: none;
+  
+    }
+   nav, footer{
+    position:fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 15px;
+    text-transform: uppercase;
+    opacity: 0.4;
+   }
+   nav > div{
+    display: flex;
+    gap: 50px;
+   }
+   .container{
+    height: 600px;
+    width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transform: translateY(10px)
+  }
+  
+  .main-section{
+    height: 100%;
+    width: 80%;
+    background-color: lightcoral;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .main-overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    background: linear-gradient(to top right, rgba(0,0,0,.7) 0%, rgba(0,0,0,0) 100%);
+    border-radius: 20px;
+    
+  }
+  
+  .text{
+    font-family: "Gogoia-deco";
+    position: absolute;
+    bottom: 25%;
+    left: 5%;
+    color: #fff;
+    font-size: 60px;
+    font-weight: 400;
+    width: 80%;
+    z-index: 3;
+  }
+  
+  .btn{
+    background-color: #f39c12; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: none;
+    position: absolute;
+    z-index: 3;
+    bottom: 10%;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .btn button{
+    height: 50px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+  }
+  
+  .main-btn{
+    border: none;
+    font-family: "Gidole";
+    font-weight: 400;
+  }
+  
+  
+  .side-section {
+    height: 100%;
+    width: 18%;
+}
+
+.box {
+    width: calc(100% - 10px);
+    height: calc(100% / 6);
+    border-radius: 15px; 
+    position: relative;
+    cursor: pointer;
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.8), rgba(80, 80, 80, 0.8)); /* Dark gradient background */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow for depth */
+    transition: transform 0.3s, box-shadow 0.3s; 
+    margin: 5px 0;
+}
+
+.box:hover {
+    transform: translateY(-3px); 
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2); /* Lighter shadow on hover */
+}
+
+.box.active {
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Softer glow effect for active state */
+    background-color: rgba(60, 60, 60, 0.9); /* Slightly darker background for active state */
+}
+
+.overlay {
+    position: absolute;
+    height: 100%; 
+    width: 100%; 
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent light overlay */
+    animation: overlay 3s linear infinite;
+    z-index: 1;
+    border-radius: 15px; 
+    display: none; 
+}
+
+.box.active .overlay {
+    display: block; 
+}
+
+.box p {
+    font-family: "Gidole";
+    font-size: 20px; 
+    font-weight: 500;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 10%;
+    transform: translate(-10%, -50%);
+    color: #ffffff; /* White text for visibility */
+    transition: color 0.3s; 
+}
+
+
+  
+  @keyframes overlay{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+  }
+  .exhibitions {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevent wrapping to only show 4 items */
+    overflow: hidden;
+    animation: appear ease-in-out 1s forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 35%;
+  }
+  .exhibition-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 23%; /* Adjust this to control the number of items per row */
+    margin-bottom: 20px;
+    color: #ffffff; /* Change text color to white for exhibition items */
+  }
+  .images{
+    width: 100%;
+    height: 250px; /* Fixed height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+  }
+  .images img {
+    width: 70%;
+    height: 100%;
+    object-fit: cover; /* Ensures images are cropped to fit their containers */
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  }
+  .ex-text{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Gogoia";
+    font-size: x-large;
+    color: white;
+  }
+  @keyframes appear {
+    from {
+      transform: translateY(200px);
+      opacity: 0.1;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  h2{
+    font-family: "Gogoia-deco";
+  font-weight: 500;
+  font-size: 50px;
+  color: white;
+  }
+  h3{
+    font-family: "Gogoia";
+  }
+  h4{
+    font-family: "Gidole";
+    font-size: normal;
+    color: rgb(255, 255, 255);
+  }
+  footer {
+    display: flex;
+    justify-content: center;
+    background-color: #111; /* Darker footer background */
+    color: #ffffff; /* White text for footer */
+    opacity: 0.9; /* Slightly more visible */
+    padding: 40px 20px; /* Add padding */
+    text-align: center; /* Center text */
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    position: relative; /* Ensure it positions properly */
+    clear: both; /* Clear any floats */
+  }
+  
+  .footer-container {
+    max-width: 800px; /* Centered and limited width */
+    margin: 0 auto; /* Center horizontally */
+  }
+  
+  footer h2 {
+    font-family: "Gogoia-deco"; /* Using your existing font */
+    font-size: 36px; /* Size for heading */
+    margin-bottom: 20px; /* Spacing below */
+    color: #333; /* Dark text for readability */
+  }
+  
+  footer p {
+    font-family: "Gidole"; /* Consistent font */
+    font-size: 18px; /* Font size for paragraph */
+    color: #555; /* Slightly lighter text */
+    line-height: 1.6; /* Line height for readability */
+  }
+  .search-container {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+    border: 2px solid rgba(255, 255, 255, 0.7); /* Subtle border */
+    border-radius: 20px;
+    background: rgba(40, 40, 40, 0.8); /* Darker glass effect */
+    color: #e1e1e1;
+    font-size: 16px;
+    outline: none;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.search-box::placeholder {
+    color: rgba(220, 220, 220, 0.7); /* Lighter placeholder */
+}
+
+.search-box:focus {
+    background: rgba(60, 60, 60, 0.9); /* Slightly darker on focus */
+    border-color: rgba(255, 255, 255, 0.9); /* Light highlight */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* Glow effect */
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.7); /* Stronger pulse for contrast */
+    }
+}

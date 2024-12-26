@@ -1,0 +1,140 @@
+<?php
+include("database.php");
+$sql_ex="select image,title from exhibitions
+      order by upload_date desc
+      limit 4;";
+
+      $result=mysqli_query($conn,$sql_ex);
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="search.css">
+    <link rel="stylesheet" href="mouse.css">
+    <link href="https://fonts.googleapis.com/css?family=Asul|Rubik|Work+Sans" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <title>Art Gallery Search Results</title>
+</head>
+<body>
+    <header>
+        <h1>Art Gallery Search Results</h1>
+        <input type="text" id="search-bar" placeholder="Search for artworks..." oninput="filterResults()">
+    </header>
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="800">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 35 -15" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+            </filter>
+        </defs>
+    </svg>
+    <div id="cursor" class="Cursor"></div>
+    <div class="search-results" id="results-container">
+        <div class="result-item">
+            <img src= "art image 1.jpg" alt="Title of Art Piece 1" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 1</h2>
+                <p>Artist: Artist Name 1</p>
+                <p>Description: This artwork is about...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 2.jpg" alt="Title of Art Piece 2" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 2</h2>
+                <p>Artist: Artist Name 2</p>
+                <p>Description: This artwork explores...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 3.jpg" alt="Title of Art Piece 3" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 3</h2>
+                <p>Artist: Artist Name 3</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 4.jpg" alt="Title of Art Piece 3" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 4</h2>
+                <p>Artist: Artist Name 4</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 5.jpg" alt="Title of Art Piece 5" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 5</h2>
+                <p>Artist: Artist Name 5</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 6.jpg" alt="Title of Art Piece 6" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 6</h2>
+                <p>Artist: Artist Name 6</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 7.jpg" alt="Title of Art Piece 3" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 7</h2>
+                <p>Artist: Artist Name 7</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 8.jpg" alt="Title of Art Piece 3" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 8</h2>
+                <p>Artist: Artist Name 8</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 9.jpg" alt="Title of Art Piece 3" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 9</h2>
+                <p>Artist: Artist Name 9</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 10.jpg" alt="Title of Art Piece 10" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 10</h2>
+                <p>Artist: Artist Name 10</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 11.jpg" alt="Title of Art Piece 11" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 11</h2>
+                <p>Artist: Artist Name 11</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <div class="result-item">
+            <img src= "art image 12.jpg" alt="Title of Art Piece 12" class="result-image">
+            <div class="result-text">
+                <h2>Title of Art Piece 12</h2>
+                <p>Artist: Artist Name 12</p>
+                <p>Description: This piece is inspired by...</p>
+            </div>
+        </div>
+        <!-- Add more result items as needed -->
+    </div>
+    <script src="search.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenMax.min.js'></script>
+    <script src="jav1.js"></script>
+</body>
+</html>

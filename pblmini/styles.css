@@ -1,0 +1,28 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+.cursor{
+    width: 20px;
+    height: 20px;
+    color:white;
+    border:1px solid white;
+    background-color: white;
+    mix-blend-mode: difference;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transition-duration: 40ms;
+    transition-timing-function: linear;
+    animation: roatating infinite;
+    
+}
+@keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  

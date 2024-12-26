@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Custom Fonts */
+@font-face {
+  font-family: 'Gogoia';
+  src: url('GOGOIA-Regular.ttf');
+}
+@font-face {
+  font-family: 'Gidole';
+  src: url('Gidole-Regular.otf');
+}
+@font-face {
+  font-family: 'Gogoia-deco';
+  src: url('GOGOIA-Deco.ttf');
+}
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #282c34;
+    color: #ffffff;
+    box-shadow: 0 4px 12px #00000044;
+    backdrop-filter: blur(50px);
+    transition: transform 0.35s;
+}
+
+.navbar--hidden {
+    transform: translateY(-100px);
+    box-shadow: none;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Gogoia-deco'; /* Custom font for the logo */
+}
+
+/* Navbar links with hover underline animation */
+/* Navbar links with hover underline animation */
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.navbar .home, 
+.navbar .links {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-family: 'Gidole';
+    transition: background 0.3s;
+    text-decoration: none;
+    color: white;
+    position: relative; /* This is important for the ::after positioning */
+}
+
+/* Create underline effect using ::after pseudo-element */
+.navbar .home::after,
+.navbar .links::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+/* On hover, expand the underline */
+.navbar .home:hover::after,
+.navbar .links:hover::after {
+    width: 100%;
+}
+
+/* Form Container */
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+    font-family: 'Gidole'; /* Custom font for form container */
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: 'Gogoia-deco'; /* Custom font for headings */
+    color: #333;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Gogoia'; /* Custom font for subheadings */
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem;
+    font-weight: 500;
+    font-family: 'Gidole';
+    font-size: 1rem;
+}
+
+/* Form Elements */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+textarea,
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+button {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Gidole'; /* Custom font for buttons */
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Art Gallery Section */
+/* Form and Preview Container */
+.form-preview-container {
+    display: flex; /* Use flexbox to align form and preview */
+    justify-content: space-between; /* Space between form and preview */
+    align-items: flex-start; /* Align to the top */
+}
+
+/* Updated Art Gallery Section */
+.gallery {
+    margin-left: 2rem; /* Add some space to the left of the gallery */
+    flex-basis: 300px; /* Fixed width for the preview section */
+}
+
+/* Adjust Art Item */
+.art-item {
+    background: #f0f0f0;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Keep the rest of your existing CSS */
+
+
+.art-item img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+}
+
+.art-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer */
+footer {
+    margin-top: 2rem;
+    padding: 1rem;
+    text-align: center;
+    background-color: #f8f8f8;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-container h2 {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-family: 'Gogoia-deco'; /* Custom font for footer heading */
+}
+
+.footer-container p {
+    margin: 0;
+    font-size: 15px !important;
+    color: #555;
+    font-family: 'Gidole'; /* Custom font for footer text */
+}
+
+/* Button Hover Effect */
+button:hover {
+    background-color: lightcoral;
+    color: white;
+}
+
+/* Smooth animation on scroll */
+@keyframes appear {
+    from {
+        transform: translateY(200px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.container {
+    animation: appear 0.5s ease-in-out;
+}
